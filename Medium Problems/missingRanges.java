@@ -7,12 +7,10 @@ class Solution {
               return result;
           if(nums[i] < next)
             continue;
-          if(nums[i] == next) {
-            next++;
-            continue;
+          if(nums[i] > next) {
+            result.add(getRange(next, nums[i]-1));
           }
-          result.add(getRange(next, nums[i]-1));
-          if(next == Integer.MAX_VALUE)
+          if(nums[i] == Integer.MAX_VALUE)
               break;
           next = nums[i]+1;
       }
