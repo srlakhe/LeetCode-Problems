@@ -23,8 +23,4 @@ public class ValidAbbreviation {
             return true;
         return (hmap.get(s).size() <= 1) && hmap.get(s).contains(word); 
     }
-
-     public static void main(String []args){
-        System.out.println("Hello World");
-     }
 }
