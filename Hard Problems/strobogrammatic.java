@@ -1,5 +1,5 @@
 import java.util.*;
-public class HelloWorld{
+public class Solution {
 
     public boolean isStrobogrammatic(String num) {
         HashMap<Character, Character> hmap = new HashMap<>();
