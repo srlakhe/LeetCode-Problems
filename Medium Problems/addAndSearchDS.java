@@ -16,8 +16,7 @@ class WordDictionary {
     /** Adds a word into the data structure. */
     public void addWord(String word) {
         TrieNode p = root;
-        for(int i = 0; i < word.length(); i++) {
-            char c = word.charAt(i);
+        for(char c: word.toCharArray()) {
             if(p.arr[c-'a'] == null)
                 p.arr[c-'a'] = new TrieNode();
             p = p.arr[c-'a'];
