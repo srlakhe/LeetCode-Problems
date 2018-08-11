@@ -20,8 +20,7 @@ class Solution {
                     while(!stack.isEmpty() && h[j] < h[stack.peek()]) {
                         int top = stack.pop();
                         int area = h[top] * (stack.isEmpty() ? j : (j - stack.peek() - 1));
-                        if(area > max)
-                            max = area;
+                        max = Math.max(max, area);
                     }
                     stack.push(j);
                 }
