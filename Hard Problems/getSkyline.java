@@ -20,10 +20,9 @@ class Solution {
             } else {
                 pq.remove(h[1]);
             }
-            int cur = pq.peek();
-            if(cur != prev) {
+            if(pq.peek() != prev) {
                 result.add(new int[] {h[0], cur});
-                prev = cur;
+                prev = pq.peek();
             }
         }
         return result;
