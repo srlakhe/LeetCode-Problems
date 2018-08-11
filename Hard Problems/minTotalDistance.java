@@ -17,12 +17,12 @@ public class Solution{
         }
         
         int sum = 0;
-        for(Integer i: rows) {
+        for(int i: rows) {
             sum += Math.abs(i - rows.get(rows.size()/2));
         }
         
         Collections.sort(cols);
-        for(Integer i: cols) {
+        for(int i: cols) {
             sum += Math.abs(i - rows.get(rows.size()/2));
         }
         
