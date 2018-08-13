@@ -6,19 +6,17 @@ class Solution {
             hmap.put(nums[i], hmap.getOrDefault(nums[i], 0)+1);
         }
         
-        List<Integer>[] sortedMap = new List[nums.length+1];
+        List<Integer>[] sortedMap = new ArrayList[nums.length+1];
         for(int num : hmap.keySet()) {
             int freq = hmap.get(num);
             if(sortedMap[freq] == null)
-                sortedMap[freq] = new LinkedList<>();
+                sortedMap[freq] = new ArrayList<>();
             sortedMap[freq].add(num);
         }
         
-        for(int i = sortedMap.length-1; i > 0 && k > 0; i--) {
+        for(int i = sortedMap.length-1; i > 0 && result.size() < k; i--) {
             if(sortedMap[i] != null) {
-                result.addAll(sortedMap[i]);
-                k -= sortedMap[i].size();
-                
+                result.addAll(sortedMap[i]);                
             }
         }
         return result;   
