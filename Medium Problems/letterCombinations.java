@@ -13,8 +13,7 @@ class Solution {
             for(int j = 0; j < len; j++) {
                 String temp = result.get(j);
                 for(char ch: str.toCharArray()) {
-                    String temp2 = temp + ch;
-                    result.add(temp2);
+                    result.add(temp + ch);
                 }     
             }
             for(int j = 0; j < len; j++)
