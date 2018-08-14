@@ -1,4 +1,6 @@
 class Solution {
+    
+    // DFS based solution
     public boolean canFinish(int numCourses, int[][] prerequisites) {
         boolean[] visited = new boolean[numCourses];
         boolean[] stack = new boolean[numCourses];
@@ -38,5 +40,34 @@ class Solution {
         }
         stack[cur] = false;
         return false;
+    }
+    
+    // BFS Topological sort based solution
+    List<Integer>[] graph;
+    public boolean canFinish(int numCourses, int[][] prerequisites) {
+        graph = new ArrayList[numCourses];
+        for(int i = 0; i < numCourses; i++)
+            graph[i] = new ArrayList<>();
+        int[] indegree = new int[numCourses];
+        for(int i = 0; i < prerequisites.length; i++) {
+            int c = prerequisites[i][0];
+            int p = prerequisites[i][1];
+            graph[p].add(c);
+            indegree[c]++;
+        }
+        
+        Queue<Integer> queue = new LinkedList<>();
+        for(int i = 0; i < numCourses; i++)
+            if(indegree[i] == 0)
+                queue.offer(i);
+        int count = 0;
+        while(!queue.isEmpty()) {
+            int course = queue.poll();
+            count++;
+            for(int c: graph[course])
+                if(--indegree[c] == 0)
+                    queue.offer(c);
+        }
+        return count == numCourses;
     }
 }
